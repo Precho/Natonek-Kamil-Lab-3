@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MusicKit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <audio id="boom" data-key="65" src="boom.wav"></audio>
+        <audio id="clap" data-key="83" src="clap.wav"></audio>
+        <audio id="hihat" data-key="68" src="hihat.wav"></audio>
+        <audio id="kick" data-key="70" src="kick.wav"></audio>
+        <audio id="openhat" data-key="71" src="openhat.wav"></audio>
+        <audio id="ride" data-key="72" src="ride.wav"></audio>
+        <audio id="snare" data-key="74" src="snare.wav"></audio>
+        <audio id="tink" data-key="75" src="tink.wav"></audio>
+        <audio id="tom" data-key="76" src="tom.wav"></audio>
+    
+
+    <H1 style="text-align:center">Muzyka</H1>
+    <div class="button" onclick="playBoom()"><h3>A</h3></div>
+    <div class="button" onclick="playClap()"><h3>S</h3></div>
+    <div class="button" onclick="playHihat()"><h3>D</h3></div>
+    <div class="button" onclick="playKick()"><h3>F</h3></div>
+    <div class="button" onclick="playOpenhat()"><h3>G</h3></div>
+    <div class="button" onclick="playRide()"><h3>H</h3></div>
+    <div class="button" onclick="playSnare()"><h3>J</h3></div>
+    <div class="button" onclick="playTink()"><h3>K</h3></div>
+    <div class="button" onclick="playTom()"><h3>L</h3></div>
+</body>
+<script>
+   
+function playBoom(){
+    var boom = document.getElementById('boom');
+    boom.play();
+}
+
+function playClap(){
+    var boom = document.getElementById('clap');
+    clap.play();
+}
+
+function playHihat(){
+    var boom = document.getElementById('hihat');
+    hihat.play();
+}
+
+function playKick(){
+    var boom = document.getElementById('kick');
+    kick.play();
+}
+
+function playOpenhat(){
+    var boom = document.getElementById('openhat');
+    openhat.play();
+}
+
+function playRide(){
+    var boom = document.getElementById('ride');
+    ride.play();
+}
+function playSnare(){
+    var boom = document.getElementById('snare');
+    snare.play();
+}
+function playTink(){
+    var boom = document.getElementById('tink');
+    tink.play();
+}
+function playTom(){
+    var boom = document.getElementById('tom');
+    tom.play();
+}
+
+// document.addEventListener('keypress', function(key){
+//   if( key.keyCode == 81){
+// playTom();
+//   }
+//   else if( key.keyCode == 87 ) {
+//       playBoom();
+//   }
+//   else if( key.keyCode == 69 ) {
+//       playClap();
+//   }
+//   else if( key.keyCode == 82 ) {
+//       playHihat();
+//   }
+//   else if( key.keyCode == 65 ) {
+//       playKick();
+//   }
+//   else if( key.keyCode == 83) {
+//       playOpenhat();
+//   }
+//   else if( key.keyCode == 68 ) {
+//       playRide();
+//   }
+//   else if( key.keyCode == 70 ) {
+//       playSnare();
+//   }
+//   else if ( key.keyCode == 71 )  {
+//       playTink();
+//   }
+  
+  function removeTransition(e) {
+ e.target.classList.remove("playing");
+}
+
+function playSound(e) {
+ const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+ const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+ if (!audio) return;
+ audio.currentTime = 0;
+ audio.play();
+
+ key.classList.add("playing");
+}
+
+document.addEventListener("keydown", playSound);
+
+const keys = Array.from(document.querySelectorAll(".key"));
+keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+</script>
+</html>
